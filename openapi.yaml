@@ -5,7 +5,8 @@ info:
   title: PandaDoc Public API
   license:
     name: MIT
-    url: 'https://github.com/PandaDoc/pandadoc-openapi-specification/blob/main/LICENSE'
+    url: >-
+      https://github.com/PandaDoc/pandadoc-openapi-specification/blob/main/LICENSE
 servers:
   - url: 'https://api.pandadoc.com'
     description: Public API
@@ -55,28 +56,36 @@ paths:
             format: datetime
           required: false
           example: '2021-10-27T15:22:23.132757Z'
-          description: Return results where the `date_completed` field (ISO 8601) is greater than or equal to this value.
+          description: >-
+            Return results where the `date_completed` field (ISO 8601) is
+            greater than or equal to this value.
         - name: completed_to
           in: query
           schema:
             type: string
             format: datetime
           required: false
-          description: Return results where the `date_completed` field (ISO 8601) is less than or equal to this value.
+          description: >-
+            Return results where the `date_completed` field (ISO 8601) is less
+            than or equal to this value.
           example: '2021-10-27T15:22:23.132757Z'
         - name: contact_id
           in: query
           schema:
             type: string
           required: false
-          description: Returns results where 'contact_id' is present in document as recipient or approver
+          description: >-
+            Returns results where 'contact_id' is present in document as
+            recipient or approver
           example: 9FeAY2NB3C9qDdtQRb4tTL
         - name: count
           in: query
           schema:
             type: integer
           required: false
-          description: 'Specify how many document results to return. Default is 50 documents, maximum is 100 documents.'
+          description: >-
+            Specify how many document results to return. Default is 50
+            documents, maximum is 100 documents.
           example: 50
         - name: created_from
           in: query
@@ -84,7 +93,9 @@ paths:
             type: string
             format: datetime
           required: false
-          description: Return results where the `date_created` field (ISO 8601) is greater than or equal to this value.
+          description: >-
+            Return results where the `date_created` field (ISO 8601) is greater
+            than or equal to this value.
           example: '2021-10-27T15:22:23.132757Z'
         - name: created_to
           in: query
@@ -92,7 +103,9 @@ paths:
             type: string
             format: datetime
           required: false
-          description: Return results where the `date_created` field (ISO 8601) is less than this value.
+          description: >-
+            Return results where the `date_created` field (ISO 8601) is less
+            than this value.
           example: '2021-10-27T15:22:23.132757Z'
         - name: deleted
           in: query
@@ -118,14 +131,18 @@ paths:
           schema:
             type: string
           required: false
-          description: Specify the form used for documents creation. This parameter can't be used with template_id.
+          description: >-
+            Specify the form used for documents creation. This parameter can't
+            be used with template_id.
           example: BhVzRcxH9Z2LgfPPGXFUBa
         - name: membership_id
           in: query
           schema:
             type: string
           required: false
-          description: Returns results where 'membership_id' is present in document as owner (should be member uuid)
+          description: >-
+            Returns results where 'membership_id' is present in document as
+            owner (should be member uuid)
           example: BhVzRcxH9Z2LgfPPGXFUBa
         - name: metadata
           in: query
@@ -136,7 +153,11 @@ paths:
             items:
               type: string
           required: false
-          description: 'Specify metadata to filter by in the format of `metadata_{metadata-key}={metadata-value}` such as `metadata_opportunity_id=2181432`. The `metadata_` prefix is always required.'
+          description: >-
+            Specify metadata to filter by in the format of
+            `metadata_{metadata-key}={metadata-value}` such as
+            `metadata_opportunity_id=2181432`. The `metadata_` prefix is always
+            required.
           example:
             - metadata_opportunity_id=2181432
             - metadata_custom_key=custom_value
@@ -146,7 +167,9 @@ paths:
             type: string
             format: datetime
           required: false
-          description: Return results where the `date_modified` field (iso-8601) is greater than or equal to this value.
+          description: >-
+            Return results where the `date_modified` field (iso-8601) is greater
+            than or equal to this value.
           example: '2021-10-27T15:22:23.132757Z'
         - name: modified_to
           in: query
@@ -154,14 +177,19 @@ paths:
             type: string
             format: datetime
           required: false
-          description: Return results where the `date_modified` field (iso-8601) is less than this value.
+          description: >-
+            Return results where the `date_modified` field (iso-8601) is less
+            than this value.
           example: '2021-10-27T15:22:23.132757Z'
         - name: order_by
           in: query
           schema:
             $ref: '#/components/schemas/DocumentOrderingFieldsEnum'
           required: false
-          description: 'Specify the order of documents to return. Use `value` (for example, `date_created`) for ASC and `-value` (for example, `-date_created`) for DESC.'
+          description: >-
+            Specify the order of documents to return. Use `value` (for example,
+            `date_created`) for ASC and `-value` (for example, `-date_created`)
+            for DESC.
           example: name
         - name: page
           in: query
@@ -176,7 +204,9 @@ paths:
           schema:
             type: string
           required: false
-          description: Search query. Filter by document reference number (this token is stored on the template level) or name.
+          description: >-
+            Search query. Filter by document reference number (this token is
+            stored on the template level) or name.
           example: Sample Document
         - name: status
           in: query
@@ -232,7 +262,9 @@ paths:
           schema:
             type: string
           required: false
-          description: Specify the template used for documents creation. Parameter can't be used with form_id.
+          description: >-
+            Specify the template used for documents creation. Parameter can't be
+            used with form_id.
           example: BhVzRcxH9Z2LgfPPGXFUBa
       responses:
         '200':
@@ -261,12 +293,18 @@ paths:
             type: string
           required: false
           example: ev2
-          description: Set this parameter as `ev1` if you want to create a document from PDF with Classic Editor when both editors are enabled for the workspace.
+          description: >-
+            Set this parameter as `ev1` if you want to create a document from
+            PDF with Classic Editor when both editors are enabled for the
+            workspace.
       requestBody:
         required: true
-        description: |
+        description: >
           Use a PandaDoc template or an existing PDF to create a document.
-          See the creation request examples [by template](/schemas/DocumentCreateByTemplateRequest)
+
+          See the creation request examples [by
+          template](/schemas/DocumentCreateByTemplateRequest)
+
           and [by pdf](/schemas/DocumentCreateByPdfRequest)
         content:
           application/json:
@@ -303,7 +341,8 @@ paths:
                   images:
                     - name: Image 1
                       urls:
-                        - 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
+                        - >-
+                          https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
                   pricing_tables:
                     - name: Pricing Table 1
                       data_merge: true
@@ -364,7 +403,8 @@ paths:
                   images:
                     - name: Image 1
                       urls:
-                        - 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
+                        - >-
+                          https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
                   pricing_tables:
                     - name: Pricing Table 1
                       data_merge: true
@@ -725,7 +765,9 @@ paths:
           schema:
             type: boolean
           required: false
-          description: Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1.
+          description: >-
+            Set as `true` if you want to receive a zip file with all documents
+            in separate when document transaction contains more than 1.
       responses:
         '200':
           description: OK
@@ -766,7 +808,9 @@ paths:
           schema:
             type: boolean
           required: false
-          description: Set as `true` if you want to receive a zip file with all documents in separate when document transaction contains more than 1.
+          description: >-
+            Set as `true` if you want to receive a zip file with all documents
+            in separate when document transaction contains more than 1.
       responses:
         '200':
           description: OK
@@ -1335,7 +1379,9 @@ paths:
             type: string
           example: S6xX7saJfA44mtJxGWd95L
         - name: count
-          description: 'Specify how many content library items to return. Default is 50 content library items, maximum is 100 content library items.'
+          description: >-
+            Specify how many content library items to return. Default is 50
+            content library items, maximum is 100 content library items.
           in: query
           schema:
             type: integer
@@ -1423,7 +1469,9 @@ paths:
           schema:
             type: boolean
         - name: count
-          description: 'Optionally, specify how many templates to return. Default is 50 templates, maximum is 100 templates.'
+          description: >-
+            Optionally, specify how many templates to return. Default is 50
+            templates, maximum is 100 templates.
           in: query
           schema:
             type: integer
@@ -1458,6 +1506,15 @@ paths:
             items:
               type: string
           description: Optional search tag. Filter by template tag.
+        - name: fields
+          description: >-
+            A comma-separated list of additional fields to include in the
+            response.  Each field must be a valid template property.  Currently,
+            only one additional field, `content_date_modified`, is supported. 
+            For example, `GET /templates?fields=content_date_modified`.
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -1541,7 +1598,9 @@ paths:
             type: integer
             format: int32
             minimum: 1
-          description: 'Optionally, specify how many forms to return. Default is 50 forms, maximum is 100 forms.'
+          description: >-
+            Optionally, specify how many forms to return. Default is 50 forms,
+            maximum is 100 forms.
           example: 10
         - name: page
           in: query
@@ -1578,7 +1637,9 @@ paths:
           in: query
           schema:
             type: boolean
-          description: 'Optionally, specify sorting the result-set in ascending or descending order.'
+          description: >-
+            Optionally, specify sorting the result-set in ascending or
+            descending order.
         - name: name
           in: query
           schema:
@@ -1635,7 +1696,9 @@ paths:
           in: query
           schema:
             type: string
-          description: 'The UUID of the folder containing folders. To list the folders located in the root folder, remove this parameter in the request.'
+          description: >-
+            The UUID of the folder containing folders. To list the folders
+            located in the root folder, remove this parameter in the request.
           example: Nq8htXxFssmhRxAPSP4SBP
         - name: count
           in: query
@@ -1643,7 +1706,9 @@ paths:
             type: integer
             format: int32
             minimum: 1
-          description: 'Optionally, specify how many folders to return. Default is 50 folders, maximum is 100 folders.'
+          description: >-
+            Optionally, specify how many folders to return. Default is 50
+            folders, maximum is 100 folders.
           example: 10
         - name: page
           in: query
@@ -1735,7 +1800,9 @@ paths:
         - Folders API
       parameters:
         - name: parent_uuid
-          description: 'The UUID of the folder containing folders. To list the folders located in the root folder, remove this parameter in the request.'
+          description: >-
+            The UUID of the folder containing folders. To list the folders
+            located in the root folder, remove this parameter in the request.
           in: query
           schema:
             type: string
@@ -1746,7 +1813,9 @@ paths:
             type: integer
             format: int32
             minimum: 1
-          description: 'Optionally, specify how many folders to return. Default is 50 folders, maximum is 100 folders.'
+          description: >-
+            Optionally, specify how many folders to return. Default is 50
+            folders, maximum is 100 folders.
           example: 10
         - name: page
           description: 'Optionally, specify which page of the dataset to return.'
@@ -1807,7 +1876,9 @@ paths:
   /public/v1/logs:
     get:
       summary: List API Log
-      description: 'Get the list of all logs within the selected workspace. Optionally filter by date, page, and `#` of items per page.'
+      description: >-
+        Get the list of all logs within the selected workspace. Optionally
+        filter by date, page, and `#` of items per page.
       operationId: listLogs
       tags:
         - API Logs
@@ -1816,13 +1887,19 @@ paths:
           in: query
           schema:
             type: string
-          description: Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as "-90d" (for past 90 days).
+          description: >-
+            Determines a point in time from which logs should be fetched. Either
+            a specific ISO 8601 datetime or a relative identifier such as "-90d"
+            (for past 90 days).
           example: '-7d'
         - name: to
           in: query
           schema:
             type: string
-          description: Determines a point in time from which logs should be fetched. Either a specific ISO 8601 datetime or a relative identifier such as "-10d" (for past 10 days) or a special "now" value.
+          description: >-
+            Determines a point in time from which logs should be fetched. Either
+            a specific ISO 8601 datetime or a relative identifier such as "-10d"
+            (for past 10 days) or a special "now" value.
           example: now
         - name: count
           in: query
@@ -1853,7 +1930,9 @@ paths:
                 - 300
                 - 400
                 - 500
-          description: 'Returns only the predefined status codes. Allows 1xx, 2xx, 3xx, 4xx, and 5xx.'
+          description: >-
+            Returns only the predefined status codes. Allows 1xx, 2xx, 3xx, 4xx,
+            and 5xx.
           example:
             - 400
             - 500
@@ -1871,7 +1950,9 @@ paths:
                 - PUT
                 - PATCH
                 - DELETE
-          description: 'Returns only the predefined HTTP methods. Allows GET, POST, PUT, PATCH, and DELETE.'
+          description: >-
+            Returns only the predefined HTTP methods. Allows GET, POST, PUT,
+            PATCH, and DELETE.
           example:
             - GET
             - POST
@@ -2400,6 +2481,923 @@ paths:
           $ref: '#/components/responses/401'
         '429':
           $ref: '#/components/responses/429'
+  /public/v2/notary/notarization-requests:
+    post:
+      tags:
+        - Notary
+      summary: Create Notarization Request
+      operationId: createNotarizationRequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNotarizationRequest'
+      responses:
+        '201':
+          description: Notarization request has been created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateNotarizationResponse'
+        '403':
+          description: Permission error
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                    example: forbidden
+                  details:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          example: inactive_addon
+                        pointer:
+                          type: string
+                          nullable: true
+                          example: null
+                        data:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              example: >-
+                                You do not have Notary On Demand addon or it is
+                                inactive.
+        '429':
+          $ref: '#/components/responses/429'
+  /public/v2/product-catalog/items/search:
+    get:
+      tags:
+        - Product catalog
+      summary: Search catalog items
+      operationId: searchCatalogItems
+      parameters:
+        - name: page
+          in: query
+          description: page number
+          required: false
+          schema:
+            type: number
+        - name: per_page
+          in: query
+          description: items per page
+          required: false
+          schema:
+            type: number
+        - name: query
+          in: query
+          description: what we search for
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: how to order the search listing
+          required: false
+          schema:
+            type: string
+            enum:
+              - sku
+              - '-sku'
+              - title
+              - '-title'
+              - price
+              - '-price'
+              - date_modified
+              - '-date_modified'
+        - name: types
+          in: query
+          description: filter by catalog item types
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - regular
+                - bundle
+        - name: billing_types
+          in: query
+          description: filter by billing types
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - one_time
+                - recurring
+        - name: exclude_uuids
+          in: query
+          description: exclude uuids
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: category_id
+          in: query
+          description: category id
+          required: false
+          schema:
+            type: string
+        - name: no_category
+          in: query
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Paginated catalog items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        billing_cycle:
+                          type: integer
+                          nullable: true
+                        billing_type:
+                          type: string
+                        bundle_items_count:
+                          type: integer
+                        workspace_id:
+                          type: string
+                        category_id:
+                          type: string
+                          nullable: true
+                        category_name:
+                          type: string
+                          nullable: true
+                        created_by:
+                          type: string
+                        cost:
+                          type: number
+                          nullable: true
+                        currency:
+                          type: string
+                        custom_fields:
+                          type: array
+                          nullable: true
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              value:
+                                type: string
+                                nullable: true
+                        date_created:
+                          type: string
+                          format: date-time
+                        date_modified:
+                          type: string
+                          format: date-time
+                          nullable: true
+                        description:
+                          type: string
+                          nullable: true
+                        image_src:
+                          type: string
+                          nullable: true
+                        images:
+                          type: array
+                          nullable: true
+                          items:
+                            type: object
+                            properties:
+                              is_main:
+                                type: boolean
+                                nullable: true
+                              order:
+                                type: number
+                              src:
+                                type: string
+                        max_tier_value:
+                          type: number
+                          nullable: true
+                        min_tier_value:
+                          type: number
+                          nullable: true
+                        modified_by:
+                          type: string
+                        price:
+                          type: number
+                          nullable: true
+                        pricing_method:
+                          type: integer
+                        sku:
+                          type: string
+                        title:
+                          type: string
+                        tiers:
+                          type: array
+                          nullable: true
+                          items:
+                            type: object
+                            properties:
+                              min_qty:
+                                type: number
+                              value:
+                                type: number
+                        type:
+                          type: string
+                          default: regular
+                          enum:
+                            - regular
+                            - bundle
+                        uuid:
+                          type: string
+                          format: uuid
+                        highlights:
+                          type: object
+                          additionalProperties: true
+                          nullable: true
+                  has_more_items:
+                    type: boolean
+                  total:
+                    type: number
+        '400':
+          $ref: '#/components/responses/400RequestError'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+  '/public/v1/documents/{document_id}/sections/uploads':
+    post:
+      tags:
+        - Sections
+      summary: Upload section
+      operationId: uploadSection
+      parameters:
+        - name: document_id
+          description: Document ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BhVzRcxH9Z2LgfPPGXFUBa
+      requestBody:
+        required: true
+        description: >
+          Use a PandaDoc template or an existing PDF to upload a section.
+
+          See the creation request examples [by
+          template](/schemas/UploadSectionByTemplateRequest)
+
+          and [by pdf](/schemas/UploadSectionByPdfRequest)
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name the section you are creating.
+                  example: API Sample Section from PandaDoc Template
+                template_uuid:
+                  type: string
+                  description: >-
+                    ID of the template you want to use. You can copy it from an
+                    in-app template URL such as
+                    `https://app.pandadoc.com/a/#/templates/{ID}/content`. A
+                    template ID is also obtained by listing templates.
+                  example: hryJY9mqYZHjQCYQuSjRQg
+                recipients:
+                  type: array
+                  description: >-
+                    The list of recipients you're sending the document to. Every
+                    object must contain the `email` parameter. The `role`,
+                    `first_name` and `last_name` parameters are optional. If the
+                    `role` parameter is passed, a person is assigned all fields
+                    matching their corresponding role. If a role was not passed,
+                    a person receives a read-only link to view the document. If
+                    the `first_name` and `last_name` are not passed, the system
+                    does this 1. Creates a new contact, if none exists with the
+                    given `email`; or 2. Gets the existing contact with the
+                    given `email` that already exists.
+                  items:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: josh@example.com
+                      first_name:
+                        type: string
+                        example: Josh
+                      last_name:
+                        type: string
+                        example: Ron
+                      role:
+                        type: string
+                        example: user
+                      signing_order:
+                        type: integer
+                        example: 1
+                    required:
+                      - email
+                tokens:
+                  type: array
+                  description: >-
+                    You can pass a list of tokens/values to pre-fill tokens used
+                    in a template. Name is a token name in a template. Value is
+                    a real value you would like to replace a token with.
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: Favorite.Pet
+                      value:
+                        type: string
+                        example: Panda
+                    required:
+                      - name
+                      - value
+                fields:
+                  type: object
+                  nullable: true
+                  description: >-
+                    You can pass a list of fields/values to pre-fill fields used
+                    in a template. Please note Signature field can't be
+                    pre-filled.
+                  example:
+                    Like:
+                      value: true
+                    Delivery:
+                      value: Same Dav Delivery
+                    Favorite.Color:
+                      value: PandaDoc green
+                    Date:
+                      value: '2019-12-31T00:00:00.000Z'
+                tags:
+                  type: array
+                  description: Mark your document with one or several tags.
+                  items:
+                    type: string
+                  example:
+                    - created_via_api
+                    - test_document
+                pricing_tables:
+                  type: array
+                  description: >-
+                    Information to construct or populate a pricing table can be
+                    passed when creating a document. All product information
+                    must be passed when creating a new document. Products stored
+                    in PandaDoc cannot be used to populate table rows at this
+                    time. Keep in mind that this is an array, so multiple table
+                    objects can be passed to a document.
+                  items:
+                    $ref: '#/components/schemas/PricingTableRequest'
+                content_placeholders:
+                  type: array
+                  description: >-
+                    You may replace Content Library Item Placeholders with a few
+                    content library items each and pre-fill fields/variables
+                    values, pricing table items, and assign recipients to roles
+                    from there.
+                  items:
+                    type: object
+                    properties:
+                      block_id:
+                        type: string
+                        description: Content placeholder block id
+                        example: Content Placeholder 1
+                      content_library_items:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Content library item id
+                              example: hryJY9mqYZHjQCYQuSjRQg
+                            pricing_tables:
+                              type: array
+                              items:
+                                $ref: '#/components/schemas/PricingTableRequest'
+                            fields:
+                              type: object
+                            recipients:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  email:
+                                    type: string
+                                    example: josh@example.com
+                                  first_name:
+                                    type: string
+                                    example: Josh
+                                  last_name:
+                                    type: string
+                                    example: Ron
+                                  role:
+                                    type: string
+                                    example: user
+                                  signing_order:
+                                    type: integer
+                                    example: 1
+                                    nullable: true
+                                required:
+                                  - email
+                          required:
+                            - id
+                url:
+                  type: string
+                  example: >-
+                    https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
+                  description: >-
+                    Use a URL to specify the PDF. We support only URLs starting
+                    with https.
+                parse_form_fields:
+                  type: boolean
+                  description: >-
+                    Set this parameter as true if you create a document from a
+                    PDF with form fields and as false if you upload a PDF with
+                    field tags.
+            examples:
+              Full API Sample:
+                summary: Full API Sample Upload Section from PandaDoc Template
+                value:
+                  template_uuid: hryJY9mqYZHjQCYQuSjRQg
+                  recipients:
+                    - email: josh@example.com
+                      first_name: Josh
+                      last_name: Ron
+                      role: user
+                  fields:
+                    Favorite.Color:
+                      value: PandaDoc green
+                    Delivery:
+                      value: Same Day Delivery
+                    Like:
+                      value: true
+                    Date:
+                      value: '2019-12-31T00:00:00.000Z'
+                  pricing_tables:
+                    - name: Pricing Table 1
+                      data_merge: true
+                      options:
+                        Tax:
+                          type: percent
+                          name: Tax
+                          value: 10
+                      sections:
+                        - title: Sample Section
+                          default: true
+                          rows:
+                            - options:
+                                optional: true
+                                optional_selected: true
+                                qty_editable: true
+                              data:
+                                Name: Toy Panda
+                                Description: Fluffy!
+                                Price: 10
+                                QTY: 3
+                                Tax:
+                                  value: 20
+                                  type: percent
+                              custom_fields:
+                                Fluffiness: 5 / 5
+                  content_placeholders:
+                    - block_id: '{block_id}'
+                      content_library_items:
+                        - id: '{cli_id}'
+                          pricing_tables:
+                            - name: Pricing Table 1
+                              data_merge: false
+                              options:
+                                discount:
+                                  type: absolute
+                                  name: Discount
+                                  value: 2.26
+                              sections:
+                                - title: Sample Section
+                                  default: true
+                                  rows:
+                                    - options:
+                                        optional: true
+                                        optional_selected: true
+                                        qty_editable: true
+                                      data:
+                                        name: Placeholder Panda
+                                        price: 10
+                                        qty: 3
+                        - id: '{cli_id_2}'
+                          recipients:
+                            - email: john@example.com
+                              first_name: John
+                              last_name: Roe
+                              role: Signer
+                              signing_order: 2
+                          fields:
+                            Date:
+                              value: '2019-12-31T00:00:00.000Z'
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Binary PDF File
+                data:
+                  type: object
+                  description: JSON as a multipart/form-data string.
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                    example: cKbJ7uay3cEGtsKuGPwYGX
+                  name:
+                    type: string
+                    example: API Sample Upload Section from PandaDoc Template
+                  document_uuid:
+                    type: string
+                    example: cKbJ7uay3cEGtsKuGPwYGX
+                  status:
+                    type: string
+                    enum:
+                      - document_sections_upload.UPLOADED
+                      - document_sections_upload.PROCESSED
+                      - document_sections_upload.ERROR
+                    example: document_sections_upload.PROCESSED
+                  sections_uuids:
+                    type: array
+                    example: '["cKbJ7uay3cEGtsKuGPwYGX", "jzjCfYgKQYm2u9ctwN6io4"]'
+                  date_created:
+                    type: string
+                    example: '2021-10-08T11:06:32.337395Z'
+                  date_modified:
+                    type: string
+                    example: '2021-10-08T11:06:32.337395Z'
+                  date_completed:
+                    type: string
+                    nullable: true
+                    example: '2021-10-08T11:06:32.337395Z'
+                  info_message:
+                    type: string
+                    example: >-
+                      You need to poll the Document Sections Upload Status
+                      method until the status will be changed to
+                      document_sections_upload.PROCESSED
+        '400':
+          $ref: '#/components/responses/400ValidationError'
+        '401':
+          $ref: '#/components/responses/401'
+        '429':
+          $ref: '#/components/responses/429'
+  '/public/v1/documents/{document_id}/sections/uploads/{upload_id}':
+    get:
+      tags:
+        - Sections
+      summary: Section details
+      operationId: sectionDetails
+      parameters:
+        - name: document_id
+          description: Document ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BhVzRcxH9Z2LgfPPGXFUBa
+        - name: upload_id
+          description: Upload ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: LQ6cUT7xevPLUEgJeF8Zrm
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                    example: 7kqXgjFejB2toXxjcC5jfZ
+                  document_uuid:
+                    type: string
+                    example: cKbJ7uay3cEGtsKuGPwYGX
+                  status:
+                    $ref: >-
+                      #/paths/~1public~1v1~1documents~1%7Bdocument_id%7D~1sections~1uploads/post/responses/201/content/application~1json/schema/properties/status
+                  name:
+                    type: string
+                    example: API Sample Section from PandaDoc Template
+                  sections_uuids:
+                    type: array
+                    example: '["cKbJ7uay3cEGtsKuGPwYGX", "jzjCfYgKQYm2u9ctwN6io4"]'
+                  date_created:
+                    type: string
+                    example: '2021-10-08T11:06:32.337395Z'
+                  date_modified:
+                    type: string
+                    example: '2021-10-08T11:06:32.337395Z'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '429':
+          $ref: '#/components/responses/429'
+  '/public/v1/documents/{document_id}/sections':
+    get:
+      tags:
+        - Sections
+      summary: List sections
+      operationId: listSections
+      parameters:
+        - name: document_id
+          description: Document ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BhVzRcxH9Z2LgfPPGXFUBa
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uuid:
+                          type: string
+                          example: ZsiBHUyksDoKActQNGz542
+                        name:
+                          type: string
+                          example: Sample Section
+        '400':
+          $ref: '#/components/responses/400RequestError'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '429':
+          $ref: '#/components/responses/429'
+  '/public/v1/documents/{document_id}/sections/{section_id}':
+    get:
+      tags:
+        - Sections
+      summary: Section Info
+      operationId: sectionInfo
+      parameters:
+        - name: document_id
+          description: Document ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BhVzRcxH9Z2LgfPPGXFUBa
+        - name: section_id
+          description: Section ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: LQ6cUT7xevPLUEgJeF8Zrm
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                    example: 7kqXgjFejB2toXxjcC5jfZ
+                  name:
+                    type: string
+                    example: API Sample Section from PandaDoc Template
+                  document_uuid:
+                    type: string
+                    example: cKbJ7uay3cEGtsKuGPwYGX
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '429':
+          $ref: '#/components/responses/429'
+  '/public/v1/documents/{document_id}/quotes/{quote_id}':
+    put:
+      tags:
+        - Quotes
+      summary: Quote update
+      operationId: quoteUpdate
+      parameters:
+        - name: document_id
+          description: Document ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: BhVzRcxH9Z2LgfPPGXFUBa
+        - name: quote_id
+          description: Quote ID
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 99aaa4f9-3250-4f5b-a953-6d7bfc5d8c9e
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '409':
+          $ref: '#/components/responses/409'
+        '429':
+          $ref: '#/components/responses/429'
+  /public/v1/workspaces:
+    post:
+      tags:
+        - User and Workspace management
+      summary: Create Workspace
+      operationId: createWorkspace
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: A new workspace
+              required:
+                - name
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: iMymdDd9XFD3HyxP5VD67Q
+                  name:
+                    type: string
+                    example: A new workspace
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+  /public/v1/users:
+    post:
+      tags:
+        - User and Workspace management
+      summary: Create User
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  description: User info
+                  properties:
+                    email:
+                      type: string
+                      example: email@example.com
+                    first_name:
+                      type: string
+                      example: John
+                    last_name:
+                      type: string
+                      example: Doe
+                    phone_number:
+                      type: string
+                      example: '+14842634627'
+                workspaces:
+                  type: array
+                  description: Info for adding a user to a workspace(s)
+                  items:
+                    type: object
+                    properties:
+                      workspace_id:
+                        type: string
+                        example: 2eWSKSvVqmuVCnuUK3iWwD
+                      role:
+                        type: string
+                        enum:
+                          - Admin
+                          - Manager
+                          - Member
+                          - Collaborator
+                license:
+                  type: string
+                  description: User License
+                  enum:
+                    - Full
+                    - eSign
+                    - Read-only
+                    - Creator
+                    - Guest
+              required:
+                - user
+                - license
+                - workspaces
+      responses:
+        '201':
+          description: OK
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                properties:
+                  type:
+                    type: string
+                    example: request_error
+                  detail:
+                    type: object
+                    example:
+                      email:
+                        - User doesn't exists
+                        - >-
+                          User email should have the same email domain as org
+                          admin.
+                        - Enter a valid email address.
+                      role:
+                        - Role is not a valid choice.
+                        - This field is required.
+                      license:
+                        - Unable to add more licenses.
+                        - License is not a valid choice.
+                        - This field is required.
+                      workspace_id:
+                        - This field is required.
+                        - 'Workspace with uuid {uuid} not found.'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
 components:
   schemas:
     OAuth2CreateAccessTokenRequest:
@@ -2412,20 +3410,28 @@ components:
           default: authorization_code
         client_id:
           type: string
-          description: Client ID that is automatically generated after application creation in the Developer Dashboard.
+          description: >-
+            Client ID that is automatically generated after application creation
+            in the Developer Dashboard.
           example: 479a3c7ba4a8d3cf28702
         client_secret:
           type: string
-          description: Client secret that is automatically generated after application creation in the Developer Dashboard.
+          description: >-
+            Client secret that is automatically generated after application
+            creation in the Developer Dashboard.
           example: a66515d3caf9183b8cad3eee546bcba892b45b01
         code:
           type: string
-          description: |
-            `auth_code` from the server on the previous step (Authorize a PandaDoc User).
+          description: >
+            `auth_code` from the server on the previous step (Authorize a
+            PandaDoc User).
           example: a9a60d4dabb61ade665c712d2b41766e7bb9a2f9
         scope:
           type: string
-          description: 'Requested permissions. Use `read+write` to create, send, delete, and download documents, and `read` to view templates and document details.'
+          description: >-
+            Requested permissions. Use `read+write` to create, send, delete, and
+            download documents, and `read` to view templates and document
+            details.
           example: read+write
       required:
         - grant_type
@@ -2442,20 +3448,27 @@ components:
           default: refresh_token
         client_id:
           type: string
-          description: Client ID that is automatically generated after application creation in the Developer Dashboard.
+          description: >-
+            Client ID that is automatically generated after application creation
+            in the Developer Dashboard.
           example: 479a3c7ba4a8d3cf28702
         client_secret:
           type: string
-          description: Client secret that is automatically generated after application creation in the Developer Dashboard.
+          description: >-
+            Client secret that is automatically generated after application
+            creation in the Developer Dashboard.
           example: a66515d3caf9183b8cad3eee546bcba892b45b01
         refresh_token:
           type: string
-          description: |
-            `refresh_token` you received and stored from the server when initially creating an `access_token`.
+          description: >
+            `refresh_token` you received and stored from the server when
+            initially creating an `access_token`.
           example: f61cc0cffd437c9a596f0acc8eb6f502a7a429d7
         scope:
           type: string
-          description: Requested permissions. Use `read+write` as our default value to send documents.
+          description: >-
+            Requested permissions. Use `read+write` as our default value to send
+            documents.
           example: read+write
       required:
         - grant_type
@@ -2515,22 +3528,39 @@ components:
       properties:
         name:
           type: string
-          description: 'Name the document you are creating. If name is not passed, the template name is used.'
+          description: >-
+            Name the document you are creating. If name is not passed, the
+            template name is used.
           example: API Sample Document from PandaDoc Template
         detect_title_variables:
           type: boolean
-          description: Set this parameter as true if you want to detect title variables in the document.
+          description: >-
+            Set this parameter as true if you want to detect title variables in
+            the document.
           example: true
         template_uuid:
           type: string
-          description: 'The ID of a template you want to use. You can copy it from an in app template url such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.'
+          description: >-
+            The ID of a template you want to use. You can copy it from an in app
+            template url such as
+            `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID
+            is also obtained by listing templates.
           example: hryJY9mqYZHjQCYQuSjRQg
         folder_uuid:
           type: string
           example: QMDSzwabfFzTgjW4kUijqQ
         recipients:
           type: array
-          description: 'The list of recipients you''re sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.'
+          description: >-
+            The list of recipients you're sending the document to. Every object
+            must contain the email parameter. The `role`, `first_name` and
+            `last_name` parameters are optional. If the `role` parameter passed,
+            a person is assigned all fields matching their corresponding role.
+            If not passed, a person will receive a read-only link to view the
+            document. If the `first_name` and `last_name` not passed the system
+            1. creates a new contact, if none exists with the given `email`; or
+            2. gets the existing contact with the given `email` that already
+            exists.
           items:
             type: object
             properties:
@@ -2554,7 +3584,10 @@ components:
               - email
         tokens:
           type: array
-          description: You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.
+          description: >-
+            You can pass a list of tokens/values to pre-fill tokens used in a
+            template. Name is a token name in a template. Value is a real value
+            you would like to replace a token with.
           items:
             type: object
             properties:
@@ -2569,7 +3602,9 @@ components:
               - value
         fields:
           type: object
-          description: You can pass a list of fields/values to pre-fill fields used in a template. Note that the Signature field can't be pre-filled.
+          description: >-
+            You can pass a list of fields/values to pre-fill fields used in a
+            template. Note that the Signature field can't be pre-filled.
           example:
             Like:
               value: true
@@ -2579,7 +3614,10 @@ components:
               value: '2019-12-31T00:00:00.000Z'
         metadata:
           type: object
-          description: You can pass arbitrary data in the key-value format to associate custom information with a document. This information is returned in any API requests for the document details by id.
+          description: >-
+            You can pass arbitrary data in the key-value format to associate
+            custom information with a document. This information is returned in
+            any API requests for the document details by id.
           example:
             my_favorite_pet: Cat
         tags:
@@ -2592,7 +3630,9 @@ components:
             - test_document
         images:
           type: array
-          description: You can pass a list of images to image blocks (one image in one block) for replacement.
+          description: >-
+            You can pass a list of images to image blocks (one image in one
+            block) for replacement.
           items:
             type: object
             properties:
@@ -2601,7 +3641,8 @@ components:
                 items:
                   type: string
                 example:
-                  - 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
+                  - >-
+                    https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
               name:
                 type: string
                 example: Image 1
@@ -2610,12 +3651,23 @@ components:
               - name
         pricing_tables:
           type: array
-          description: 'Information to construct or populate a pricing table can be passed when creating a document. All product information must be passed when creating a new document. Products stored in PandaDoc cannot be used to populate table rows at this time. Keep in mind that this is an array, so multiple table objects can be passed to a document. Make sure that "Automatically add products to this table" is enabled in the PandaDoc template pricing tables you wish to populate via API.'
+          description: >-
+            Information to construct or populate a pricing table can be passed
+            when creating a document. All product information must be passed
+            when creating a new document. Products stored in PandaDoc cannot be
+            used to populate table rows at this time. Keep in mind that this is
+            an array, so multiple table objects can be passed to a document.
+            Make sure that "Automatically add products to this table" is enabled
+            in the PandaDoc template pricing tables you wish to populate via
+            API.
           items:
             $ref: '#/components/schemas/PricingTableRequest'
         content_placeholders:
           type: array
-          description: 'You may replace Content Library Item Placeholders with a few content library items each and pre-fill fields/variables values, pricing table items, and assign recipients to roles from there.'
+          description: >-
+            You may replace Content Library Item Placeholders with a few content
+            library items each and pre-fill fields/variables values, pricing
+            table items, and assign recipients to roles from there.
           items:
             type: object
             properties:
@@ -2671,11 +3723,23 @@ components:
       properties:
         url:
           type: string
-          example: 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
-          description: Use a URL to specify the PDF. We support only URLs starting with https.
+          example: >-
+            https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
+          description: >-
+            Use a URL to specify the PDF. We support only URLs starting with
+            https.
         recipients:
           type: array
-          description: 'The list of recipients you''re sending the document to. Every object must contain the email parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter passed, a person is assigned all fields matching their corresponding role. If not passed, a person will receive a read-only link to view the document. If the `first_name` and `last_name` not passed the system 1. creates a new contact, if none exists with the given `email`; or 2. gets the existing contact with the given `email` that already exists.'
+          description: >-
+            The list of recipients you're sending the document to. Every object
+            must contain the email parameter. The `role`, `first_name` and
+            `last_name` parameters are optional. If the `role` parameter passed,
+            a person is assigned all fields matching their corresponding role.
+            If not passed, a person will receive a read-only link to view the
+            document. If the `first_name` and `last_name` not passed the system
+            1. creates a new contact, if none exists with the given `email`; or
+            2. gets the existing contact with the given `email` that already
+            exists.
           items:
             type: object
             properties:
@@ -2699,7 +3763,9 @@ components:
               - email
         parse_form_fields:
           type: boolean
-          description: Set this parameter as `true` if you create a document from a PDF with form fields and as `false` if you upload a PDF with field tags.
+          description: >-
+            Set this parameter as `true` if you create a document from a PDF
+            with form fields and as `false` if you upload a PDF with field tags.
         name:
           type: string
         tags:
@@ -2712,8 +3778,13 @@ components:
             - test_document
         fields:
           type: object
-          description: |
-            If you are creating a document from a PDF with field tags, you can pass a list of the fields you'd like to pre-fill in the document. If you are creating a document from a PDF with form fields, list all the fields and provide the `role` parameter so that the fields are assigned to document recipients. You can provide empty value for the field so that it's not pre-filled: "value": "".
+          description: >
+            If you are creating a document from a PDF with field tags, you can
+            pass a list of the fields you'd like to pre-fill in the document. If
+            you are creating a document from a PDF with form fields, list all
+            the fields and provide the `role` parameter so that the fields are
+            assigned to document recipients. You can provide empty value for the
+            field so that it's not pre-filled: "value": "".
           example:
             Like:
               value: true
@@ -2723,7 +3794,10 @@ components:
               value: '2019-12-31T00:00:00.000Z'
         metadata:
           type: object
-          description: You can pass arbitrary data in the key-value format to associate custom information with a document. This information is returned in any API requests for the document details by id.
+          description: >-
+            You can pass arbitrary data in the key-value format to associate
+            custom information with a document. This information is returned in
+            any API requests for the document details by id.
           example:
             my_favorite_pet: Cat
       required:
@@ -2738,10 +3812,16 @@ components:
           example: API Sample Document from PandaDoc Template
         detect_title_variables:
           type: boolean
-          description: Set this parameter as true if you want to detect title variables in the document.
+          description: >-
+            Set this parameter as true if you want to detect title variables in
+            the document.
         template_uuid:
           type: string
-          description: 'ID of the template you want to use. You can copy it from an in-app template URL such as `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID is also obtained by listing templates.'
+          description: >-
+            ID of the template you want to use. You can copy it from an in-app
+            template URL such as
+            `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID
+            is also obtained by listing templates.
           example: hryJY9mqYZHjQCYQuSjRQg
         folder_uuid:
           type: string
@@ -2757,7 +3837,16 @@ components:
             email: john.doe@example.com
         recipients:
           type: array
-          description: 'The list of recipients you''re sending the document to. Every object must contain the `email` parameter. The `role`, `first_name` and `last_name` parameters are optional. If the `role` parameter is passed, a person is assigned all fields matching their corresponding role. If a role was not passed, a person receives a read-only link to view the document. If the `first_name` and `last_name` are not passed, the system does this 1. Creates a new contact, if none exists with the given `email`; or 2. Gets the existing contact with the given `email` that already exists.'
+          description: >-
+            The list of recipients you're sending the document to. Every object
+            must contain the `email` parameter. The `role`, `first_name` and
+            `last_name` parameters are optional. If the `role` parameter is
+            passed, a person is assigned all fields matching their corresponding
+            role. If a role was not passed, a person receives a read-only link
+            to view the document. If the `first_name` and `last_name` are not
+            passed, the system does this 1. Creates a new contact, if none
+            exists with the given `email`; or 2. Gets the existing contact with
+            the given `email` that already exists.
           items:
             type: object
             properties:
@@ -2780,7 +3869,10 @@ components:
               - email
         tokens:
           type: array
-          description: You can pass a list of tokens/values to pre-fill tokens used in a template. Name is a token name in a template. Value is a real value you would like to replace a token with.
+          description: >-
+            You can pass a list of tokens/values to pre-fill tokens used in a
+            template. Name is a token name in a template. Value is a real value
+            you would like to replace a token with.
           items:
             type: object
             properties:
@@ -2796,7 +3888,9 @@ components:
         fields:
           type: object
           nullable: true
-          description: You can pass a list of fields/values to pre-fill fields used in a template. Please note Signature field can't be pre-filled.
+          description: >-
+            You can pass a list of fields/values to pre-fill fields used in a
+            template. Please note Signature field can't be pre-filled.
           example:
             Like:
               value: true
@@ -2809,7 +3903,10 @@ components:
         metadata:
           type: object
           nullable: true
-          description: You can pass arbitrary data in the key-value format to associate custom information with a document. This information is returned in any API requests for the document details by id.
+          description: >-
+            You can pass arbitrary data in the key-value format to associate
+            custom information with a document. This information is returned in
+            any API requests for the document details by id.
           example:
             opp_id: '1234567'
             my_favorite_pet: Panda
@@ -2823,7 +3920,9 @@ components:
             - test_document
         images:
           type: array
-          description: You can pass a list of images to image blocks (one image in one block) for replacement.
+          description: >-
+            You can pass a list of images to image blocks (one image in one
+            block) for replacement.
           items:
             type: object
             nullable: true
@@ -2833,7 +3932,8 @@ components:
                 items:
                   type: string
                 example:
-                  - 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
+                  - >-
+                    https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
               name:
                 type: string
                 example: Image 1
@@ -2842,12 +3942,20 @@ components:
               - name
         pricing_tables:
           type: array
-          description: 'Information to construct or populate a pricing table can be passed when creating a document. All product information must be passed when creating a new document. Products stored in PandaDoc cannot be used to populate table rows at this time. Keep in mind that this is an array, so multiple table objects can be passed to a document.'
+          description: >-
+            Information to construct or populate a pricing table can be passed
+            when creating a document. All product information must be passed
+            when creating a new document. Products stored in PandaDoc cannot be
+            used to populate table rows at this time. Keep in mind that this is
+            an array, so multiple table objects can be passed to a document.
           items:
             $ref: '#/components/schemas/PricingTableRequest'
         content_placeholders:
           type: array
-          description: 'You may replace Content Library Item Placeholders with a few content library items each and pre-fill fields/variables values, pricing table items, and assign recipients to roles from there.'
+          description: >-
+            You may replace Content Library Item Placeholders with a few content
+            library items each and pre-fill fields/variables values, pricing
+            table items, and assign recipients to roles from there.
           items:
             type: object
             properties:
@@ -2897,11 +4005,16 @@ components:
                     - id
         url:
           type: string
-          example: 'https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png'
-          description: Use a URL to specify the PDF. We support only URLs starting with https.
+          example: >-
+            https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
+          description: >-
+            Use a URL to specify the PDF. We support only URLs starting with
+            https.
         parse_form_fields:
           type: boolean
-          description: Set this parameter as true if you create a document from a PDF with form fields and as false if you upload a PDF with field tags.
+          description: >-
+            Set this parameter as true if you create a document from a PDF with
+            form fields and as false if you upload a PDF with field tags.
     DocumentCreateResponse:
       type: object
       properties:
@@ -2936,13 +4049,16 @@ components:
                 example: status
               href:
                 type: string
-                example: 'https://api.pandadoc.com/public/v1/documents/jzjCfYgKQYm2u9ctwN6io4'
+                example: >-
+                  https://api.pandadoc.com/public/v1/documents/jzjCfYgKQYm2u9ctwN6io4
               type:
                 type: string
                 example: GET
         info_message:
           type: string
-          example: You need to poll the Document Status method until the status will be changed to document.draft
+          example: >-
+            You need to poll the Document Status method until the status will be
+            changed to document.draft
     DocumentStatusResponse:
       type: object
       properties:
@@ -2986,7 +4102,11 @@ components:
           example: Contract
         recipients:
           type: array
-          description: 'The list of recipients you''re sending the document to. The ID or email are required. If the ID is passed, an existing recipient will be updated. If the email is passed, a new recipient will be added to CC.'
+          description: >-
+            The list of recipients you're sending the document to. The ID or
+            email are required. If the ID is passed, an existing recipient will
+            be updated. If the email is passed, a new recipient will be added to
+            CC.
           items:
             type: object
             properties:
@@ -3003,7 +4123,9 @@ components:
                 example: Ron
         fields:
           type: object
-          description: You may pass a list of fields/values which exist in a document. Please use `Merge Field` property of the fields like the key.
+          description: >-
+            You may pass a list of fields/values which exist in a document.
+            Please use `Merge Field` property of the fields like the key.
           example:
             Like:
               value: true
@@ -3013,7 +4135,10 @@ components:
               value: '2019-12-31T00:00:00.000Z'
         tokens:
           type: array
-          description: 'You can pass a list of tokens/values. If a token name exists in a document then the value will be updated. Otherwise, a new token will be added to the document.'
+          description: >-
+            You can pass a list of tokens/values. If a token name exists in a
+            document then the value will be updated. Otherwise, a new token will
+            be added to the document.
           items:
             type: object
             properties:
@@ -3028,7 +4153,12 @@ components:
               - value
         metadata:
           type: object
-          description: 'You can pass arbitrary data in the key-value format to associate custom information with a document. This information is returned in any API requests for the document details by id. If metadata exists in a document then the value will be updated. Otherwise, metadata will be added to the document.'
+          description: >-
+            You can pass arbitrary data in the key-value format to associate
+            custom information with a document. This information is returned in
+            any API requests for the document details by id. If metadata exists
+            in a document then the value will be updated. Otherwise, metadata
+            will be added to the document.
           example:
             my_favorite_pet: Cat
         pricing_tables:
@@ -3061,17 +4191,17 @@ components:
         autonumbering_sequence_name_prefix: {}
         date_created:
           type: string
-          example: 2021-10-23T21:07:04.147Z
+          example: '2021-10-23T21:07:04.147Z'
         date_modified:
           type: string
-          example: 2021-10-23T21:07:04.147Z
+          example: '2021-10-23T21:07:04.147Z'
         date_completed:
           type: string
-          example: 2021-10-23T21:07:04.147Z
+          example: '2021-10-23T21:07:04.147Z'
           nullable: true
         content_date_modified:
           type: string
-          example: 2021-10-23T21:07:04.147Z
+          example: '2021-10-23T21:07:04.147Z'
         created_by:
           type: object
           properties:
@@ -3092,7 +4222,8 @@ components:
               example: Dow
             avatar:
               type: string
-              example: 'https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg'
+              example: >-
+                https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg
               nullable: true
         template:
           type: object
@@ -3131,7 +4262,8 @@ components:
               placeholder: Click to upload a file
               value:
                 name: file_name.pdf
-                url: 'https://uploadfields.pandadoc-static.com/collect_files/e7b082c2-395b-43c7-a24c-66bd1bbb5d2f/65af1f23-9d26-4622-8ff0-f406b3be27b8-file_name.pdf'
+                url: >-
+                  https://uploadfields.pandadoc-static.com/collect_files/e7b082c2-395b-43c7-a24c-66bd1bbb5d2f/65af1f23-9d26-4622-8ff0-f406b3be27b8-file_name.pdf
               assigned_to:
                 id: Fx7CgaVgpGbJBgZ4i5oTx8
                 first_name: John
@@ -3232,11 +4364,15 @@ components:
                 example: true
               shared_link:
                 type: string
-                example: 'https://app.pandadoc.com/document/b7f11ea3c09d1c11208cc122457d4f3a2829d364'
+                example: >-
+                  https://app.pandadoc.com/document/b7f11ea3c09d1c11208cc122457d4f3a2829d364
               signature_date:
                 type: string
                 nullable: true
-                example: 2021-10-23T21:07:04.147Z
+                example: '2021-10-23T21:07:04.147Z'
+              verification_settings:
+                $ref: >-
+                  #/components/schemas/DocumentRecipientEditRequest/properties/verification_setting
         grand_total:
           type: object
           properties:
@@ -3271,11 +4407,15 @@ components:
       properties:
         recipient:
           type: string
-          description: The email address for the recipient you're creating a document link for.
+          description: >-
+            The email address for the recipient you're creating a document link
+            for.
           example: josh@example.com
         lifetime:
           type: number
-          description: Provide the number of seconds that a document link should be valid for. Default is 3600 seconds.
+          description: >-
+            Provide the number of seconds that a document link should be valid
+            for. Default is 3600 seconds.
           example: 900
       required:
         - recipient
@@ -3293,7 +4433,9 @@ components:
       properties:
         message:
           type: string
-          description: A message that will be sent by email with a link to a document to sign.
+          description: >-
+            A message that will be sent by email with a link to a document to
+            sign.
           example: Hello! This document was sent from the PandaDoc API
         subject:
           type: string
@@ -3301,7 +4443,12 @@ components:
           example: Please check this test API document from PandaDoc
         silent:
           type: boolean
-          description: 'Disables sent, viewed, comment, and completed email notifications for document recipients and the document sender. By default, notifications emails are sent for specific actions. If set as true, it won''t affect the "Approve document" email notification sent to the Approver.'
+          description: >-
+            Disables sent, viewed, comment, and completed email notifications
+            for document recipients and the document sender. By default,
+            notifications emails are sent for specific actions. If set as true,
+            it won't affect the "Approve document" email notification sent to
+            the Approver.
         sender:
           type: object
           description: You can set a sender of a document as an `email` or `membership_id`
@@ -3401,7 +4548,8 @@ components:
           example: msFYActMfJHqNTKH8YSvF1
         shared_link:
           type: string
-          example: 'https://app.pandadoc.com/document/b7f11ea3c09d1c11208cc122457d4f3a2829d364'
+          example: >-
+            https://app.pandadoc.com/document/b7f11ea3c09d1c11208cc122457d4f3a2829d364
     DocumentAttachmentRequest:
       type: object
       properties:
@@ -3412,7 +4560,8 @@ components:
         source:
           type: string
           description: URL link to the file to be attached to a document
-          example: 'https://is3-ssl.mzstatic.com/1e7fbd74-d10c-8e3a-63c3-0beb3ea231a5/512x512bb.jpg'
+          example: >-
+            https://is3-ssl.mzstatic.com/1e7fbd74-d10c-8e3a-63c3-0beb3ea231a5/512x512bb.jpg
         name:
           type: string
           description: Optional name to set for uploaded file
@@ -3444,7 +4593,8 @@ components:
             avatar:
               type: string
               nullable: true
-              example: 'https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg'
+              example: >-
+                https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg
         name:
           type: string
           nullable: true
@@ -3461,11 +4611,15 @@ components:
       properties:
         from_membership_id:
           type: string
-          description: A unique identifier of a workspace member from whom you want to transfer ownership.
+          description: >-
+            A unique identifier of a workspace member from whom you want to
+            transfer ownership.
           example: Dqsxp4jNnFcS63tJEgLJGN
         to_membership_id:
           type: string
-          description: A unique identifier of a workspace member to whom you want to transfer ownership.
+          description: >-
+            A unique identifier of a workspace member to whom you want to
+            transfer ownership.
           example: radQBiBkU7MBk59NSgaGfd
     DocumentRecipientCreateRequest:
       type: object
@@ -3524,6 +4678,295 @@ components:
           type: string
           nullable: true
           example: '75001'
+        verification_setting:
+          type: object
+          nullable: true
+          properties:
+            verification_place:
+              description: Verification place
+              type: string
+              enum:
+                - before_open
+                - before_sign
+            passcode_verification:
+              type: object
+              properties:
+                passcode:
+                  type: string
+                  pattern: '(?=(?:.*[a-zA-Z]){1,})(?=(?:.*[0-9]){1,})^[\S]{6,100}$'
+                  example: SimpleCode1
+              required:
+                - passcode
+            phone_verification:
+              type: object
+              properties:
+                phone_number:
+                  type: string
+                  pattern: '^\+[1-9]\d{0,4}\d{2,14}$'
+                  example: '+1234567890'
+              required:
+                - phone_number
+    QuoteUpdateRequest:
+      type: object
+      properties:
+        sections:
+          type: array
+          description: >-
+            Quote sections - this property overrides existing sections in the
+            specified order. If you want to change only one section, you must
+            still pass other sections IDs. Otherwise these sections will be
+            removed.
+          items:
+            type: object
+            title: UpdateIntegrationQuoteSection
+            properties:
+              id:
+                type: string
+                format: uuid
+                nullable: false
+                description: >-
+                  Section ID to update. Invalid (or missing) ID causes creating
+                  a new section.
+              name:
+                type: string
+                nullable: true
+                description: >-
+                  Name of the quotes section. If you create a section without
+                  providing a value, it will have the default value.
+                default: Section name
+              items:
+                type: array
+                description: >-
+                  Section items - this property overrides the existing items in
+                  the order specified. If you want to change only one item, you
+                  must still pass other items IDs. Otherwise these items will be
+                  removed.
+                items:
+                  type: object
+                  title: UpdateIntegrationQuoteSectionItem
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      nullable: false
+                      description: >-
+                        Item ID to update. Invalid (or missing) ID causes
+                        creating a new item.
+                    sku:
+                      type: string
+                      nullable: false
+                      description: >-
+                        Product SKU. If you create an item without providing a
+                        value, it will have the default value.
+                      default: '#'
+                    name:
+                      type: string
+                      nullable: false
+                      description: >-
+                        Item name. If you create an item without providing a
+                        value, it will have the default value.
+                      default: ''
+                    description:
+                      type: string
+                      nullable: false
+                      description: >-
+                        Item description. If you create an item without
+                        providing a value, it will have the default value.
+                      default: ''
+                    qty:
+                      type: integer
+                      nullable: false
+                      description: >-
+                        Item QTY. If you create an item without providing a
+                        value, it will have the default value.
+                      default: 1
+                      example: 10
+                    price:
+                      type: number
+                      nullable: false
+                      description: >-
+                        Item price. If you create an item without providing a
+                        value, it will have the default value. If
+                        `price_settings` is passed, this value may change after
+                        the quote is updated.
+                      default: 0
+                      example: 42.42
+                    price_settings:
+                      type: object
+                      nullable: false
+                      description: >-
+                        Price settings if the price is not flat rate. If it is
+                        null, the price is flat rate.
+                      properties:
+                        base_value:
+                          type: number
+                          description: >-
+                            Base value for volume discount pricing. If set,
+                            tiers are treated like percentage of discount on
+                            this value. If not set, tiers are treated like a
+                            flat value discount of chosen currency.
+                          nullable: true
+                        tiers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              min_qty:
+                                type: integer
+                                nullable: false
+                              value:
+                                type: number
+                                nullable: false
+                            required:
+                              - value
+                              - min_qty
+                          minLength: 1
+                      required:
+                        - base_value
+                        - tiers
+                    cost:
+                      type: number
+                      nullable: false
+                      description: >-
+                        Item cost. If you create an item without providing a
+                        value, it will have the default value.
+                      example: 42.42
+                    billing_frequency:
+                      type: string
+                      nullable: true
+                      enum:
+                        - weekly
+                        - monthly
+                        - annually
+                        - quarterly
+                        - semiannualy
+                    contract_term:
+                      type: integer
+                      nullable: true
+                      description: >-
+                        Contract term. Measured in units set in the
+                        `billing_frequency` parameter.
+                    reference_id:
+                      type: string
+                      nullable: true
+                      description: >-
+                        Use this field to pass an id that references this item
+                        in external systems.
+                    options:
+                      type: object
+                      nullable: false
+                      description: >-
+                        Denotes whether an item is selected, optional, and has
+                        editable quantity.
+                      properties:
+                        selected:
+                          type: boolean
+                          nullable: false
+                          default: true
+                        qty_editable:
+                          type: boolean
+                          nullable: false
+                          default: true
+                        optional:
+                          type: boolean
+                          nullable: false
+                          default: false
+                      required:
+                        - qty_editable
+                    custom_columns:
+                      type: object
+                      nullable: false
+                      additionalProperties:
+                        type: string
+                    discounts:
+                      type: object
+                      nullable: false
+                      description: Item discounts.
+                      additionalProperties:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            nullable: false
+                            enum:
+                              - percent
+                              - flat
+                          value:
+                            type: number
+                            nullable: false
+                    taxes:
+                      type: object
+                      nullable: false
+                      description: Item taxes.
+                      additionalProperties:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            nullable: false
+                            enum:
+                              - percent
+                              - flat
+                          value:
+                            type: number
+                            nullable: false
+                    fees:
+                      type: object
+                      nullable: false
+                      description: Item fees.
+                      additionalProperties:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            nullable: false
+                            enum:
+                              - percent
+                              - flat
+                          value:
+                            type: number
+                            nullable: false
+                    multipliers:
+                      description: Item multipliers.
+                      type: object
+                      nullable: false
+                      additionalProperties:
+                        type: number
+                nullable: false
+              settings:
+                type: object
+                description: >-
+                  Section settings. Denotes whether a section is optional or
+                  selected, and selection type inside the section - single,
+                  multiple, or custom.
+                properties:
+                  optional:
+                    type: boolean
+                    nullable: false
+                  selected:
+                    type: boolean
+                    nullable: false
+                  selection_type:
+                    type: string
+                    enum:
+                      - custom
+                      - single
+                      - multiple
+                    nullable: false
+                nullable: false
+        settings:
+          type: object
+          description: >-
+            Quote settings. Denotes whether a quote is optional or selected, and
+            selection type inside the section - single, multiple, or custom.
+          properties:
+            selection_type:
+              type: string
+              enum:
+                - custom
+                - single
+                - multiple
+          nullable: false
     DocumentRecipientResponse:
       type: object
       properties:
@@ -3546,7 +4989,9 @@ components:
           example: pipedrive
         entity_type:
           type: string
-          description: Entity type. The system validates if the type is supported. See the list for each CRM above.
+          description: >-
+            Entity type. The system validates if the type is supported. See the
+            list for each CRM above.
           example: deal
         entity_id:
           type: string
@@ -3568,7 +5013,9 @@ components:
           example: pipedrive
         entity_type:
           type: string
-          description: Entity type. The system validates if the type is supported. See the list for each CRM above.
+          description: >-
+            Entity type. The system validates if the type is supported. See the
+            list for each CRM above.
           example: deal
         entiry_id:
           type: string
@@ -3610,7 +5057,8 @@ components:
             avatar:
               type: string
               nullable: true
-              example: 'https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg'
+              example: >-
+                https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg
         metadata:
           type: object
         tokens:
@@ -3688,6 +5136,9 @@ components:
               version:
                 type: string
                 example: '2'
+              content_date_modified:
+                type: string
+                example: '2021-06-17T15:51:13.426974Z'
     TemplateDetailsResponse:
       type: object
       properties:
@@ -3724,7 +5175,8 @@ components:
             avatar:
               type: string
               nullable: true
-              example: 'https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg'
+              example: >-
+                https://pd-live-media.s3.amazonaws.com/users/000GTSGwJw000L2KZqc000/avatar.jpg
         metadata:
           type: object
           example:
@@ -3831,7 +5283,8 @@ components:
                 type: array
                 items:
                   type: string
-                  example: 'https://api.pandadoc.com/images/Pf7QMxFzcCkMSVXnCZfwcJ/2e6131b32d6949e4a093c36bafccd194'
+                  example: >-
+                    https://api.pandadoc.com/images/Pf7QMxFzcCkMSVXnCZfwcJ/2e6131b32d6949e4a093c36bafccd194
     FormListResponse:
       type: object
       properties:
@@ -3866,7 +5319,9 @@ components:
           example: A new document folder
         parent_uuid:
           type: string
-          description: 'ID of the parent folder. To create a new folder in the root folder, remove this parameter in the request.'
+          description: >-
+            ID of the parent folder. To create a new folder in the root folder,
+            remove this parameter in the request.
           example: Nq8htXxFssmhRxAPSP4SBP
       required:
         - name
@@ -3933,7 +5388,9 @@ components:
           example: A new template folder
         parent_uuid:
           type: string
-          description: 'ID of the parent folder. To create a new folder in the root folder, remove this parameter in the request.'
+          description: >-
+            ID of the parent folder. To create a new folder in the root folder,
+            remove this parameter in the request.
           example: Nq8htXxFssmhRxAPSP4SBP
       required:
         - name
@@ -4088,7 +5545,9 @@ components:
           example: Pricing Table 1
         data_merge:
           type: boolean
-          description: When set to true all field names in data rows must be passed as external names defined in the template.
+          description: >-
+            When set to true all field names in data rows must be passed as
+            external names defined in the template.
         options:
           type: object
           example:
@@ -4312,7 +5771,9 @@ components:
               merged_data:
                 type: object
                 nullable: true
-                description: Contains all fields in a flat structure with external field names defined in the template.
+                description: >-
+                  Contains all fields in a flat structure with external field
+                  names defined in the template.
                 example:
                   custom_name: SomeName
                   custom_description: SomeCustomDescription
@@ -4475,6 +5936,22 @@ components:
                     type: string
                     example: '1900'
                     nullable: true
+              columns:
+                type: array
+                items:
+                  type: object
+                  title: QuoteResponseSectionColumn
+                  properties:
+                    header:
+                      type: string
+                      nullable: true
+                    name:
+                      type: string
+                    merge_name:
+                      type: string
+                      nullable: true
+                    hidden:
+                      type: string
               items:
                 type: array
                 items:
@@ -4586,6 +6063,19 @@ components:
               total:
                 type: string
                 example: '1000'
+              settings:
+                type: object
+                properties:
+                  optional:
+                    type: boolean
+                  selected:
+                    type: boolean
+                  selection_type:
+                    type: string
+                    enum:
+                      - custom
+                      - single
+                      - multiple
             nullable: true
         merge_rules:
           type: array
@@ -4619,6 +6109,15 @@ components:
                           type: string
                         value:
                           type: string
+        settings:
+          type: object
+          properties:
+            selection_type:
+              type: string
+              enum:
+                - custom
+                - single
+                - multiple
     ContactDetailsResponse:
       type: object
       properties:
@@ -4782,7 +6281,9 @@ components:
           example: Ron
         is_active:
           type: boolean
-          description: A boolean value that identifies if a member is active in the workspace.
+          description: >-
+            A boolean value that identifies if a member is active in the
+            workspace.
           example: true
         workspace:
           type: string
@@ -4896,6 +6397,8 @@ components:
         - document_state_changed
         - document_creation_failed
         - quote_updated
+        - template_created
+        - template_modified
       example: document_state_changed
     WebhookSubscriptionStatusEnum:
       type: string
@@ -5039,6 +6542,8 @@ components:
         - document_state_changed
         - document_creation_failed
         - quote_updated
+        - template_created
+        - template_modified
       example: document_state_changed
     WebhookEventItemResponse:
       type: object
@@ -5138,6 +6643,334 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WebhookEventItemResponse'
+    CreateNotarizationRequest:
+      type: object
+      properties:
+        document_id:
+          type: string
+          maxLength: 50
+          example: 8DstGmLJDBXBKrh3wnqzpe
+        invitation:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Some message
+            invitees:
+              type: array
+              items:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 255
+                    nullable: false
+                    example: email@gmail.com
+                  first_name:
+                    type: string
+                    maxLength: 50
+                    nullable: true
+                    example: John
+                  last_name:
+                    type: string
+                    maxLength: 50
+                    nullable: true
+                    example: Smith
+                required:
+                  - email
+      required:
+        - document_id
+        - invitation
+    CreateNotarizationResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: f75e053a-25e8-40be-8681-fd755ade2a2b
+        name:
+          type: string
+          example: test
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - SENT
+            - WAITING_FOR_NOTARY
+            - ACCEPTED
+            - LIVE
+            - COMPLETED
+            - TERMINATED
+            - CANCELLED
+          example: SENT
+        date_created:
+          type: string
+          format: date-time
+          example: '2023-04-14T16:33:06.938984Z'
+        date_accepted:
+          type: string
+          format: date-time
+          nullable: true
+          example: null
+        created_by:
+          type: object
+          properties:
+            user_id:
+              type: string
+              example: nyAnVpY7pZ23FBve8s9xgk
+            email:
+              type: string
+              example: email@gmail.com
+            first_name:
+              type: string
+              example: John
+            last_name:
+              type: string
+              example: Smith
+        invitees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              email:
+                type: string
+                format: email
+                maxLength: 255
+                example: email@gmail.com
+              first_name:
+                type: string
+                maxLength: 50
+                example: John
+              last_name:
+                type: string
+                maxLength: 50
+                example: Smith
+              notarization_link:
+                type: string
+                example: >-
+                  https://notarize.pandadoc.com/session-request#/?requestId=f75e053a-25e8-40be-8681-fd755ade2a2b&inviteeId=2fbb4cbf-d461-4421-94cf-eaadcb9627e0
+    UploadSectionByPdfRequest:
+      type: object
+      properties:
+        url:
+          type: string
+          example: >-
+            https://s3.amazonaws.com/pd-static-content/public-docs/pandadoc-panda-bear.png
+          description: >-
+            Use a URL to specify the PDF. We support only URLs starting with
+            https.
+        recipients:
+          type: array
+          description: >-
+            The list of recipients you're sending the document to. Every object
+            must contain the email parameter. The `role`, `first_name` and
+            `last_name` parameters are optional. If the `role` parameter passed,
+            a person is assigned all fields matching their corresponding role.
+            If not passed, a person will receive a read-only link to view the
+            document. If the `first_name` and `last_name` not passed the system
+            1. creates a new contact, if none exists with the given `email`; or
+            2. gets the existing contact with the given `email` that already
+            exists.
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                example: josh@example.com
+              first_name:
+                type: string
+                example: Josh
+              last_name:
+                type: string
+                example: Ron
+              role:
+                type: string
+                example: user
+              signing_order:
+                type: integer
+                example: 1
+                nullable: true
+            required:
+              - email
+        parse_form_fields:
+          type: boolean
+          description: >-
+            Set this parameter as `true` if you create a document from a PDF
+            with form fields and as `false` if you upload a PDF with field tags.
+        name:
+          type: string
+        tags:
+          type: array
+          description: Mark your document with one or several tags.
+          items:
+            type: string
+          example:
+            - pdf_document
+            - test_document
+        fields:
+          type: object
+          description: >
+            If you are upload a section from a PDF with field tags, you can pass
+            a list of the fields you'd like to pre-fill in the document. If you
+            are upload a section from a PDF with form fields, list all the
+            fields and provide the `role` parameter so that the fields are
+            assigned to document recipients. You can provide empty value for the
+            field so that it's not pre-filled: "value": "".
+          example:
+            Like:
+              value: true
+            Delivery:
+              value: Same Day Delivery
+            Date:
+              value: '2019-12-31T00:00:00.000Z'
+      required:
+        - url
+        - recipients
+    UploadSectionByTemplateRequest:
+      type: object
+      properties:
+        template_uuid:
+          type: string
+          description: >-
+            The ID of a template you want to use. You can copy it from an in app
+            template url such as
+            `https://app.pandadoc.com/a/#/templates/{ID}/content`. A template ID
+            is also obtained by listing templates.
+          example: hryJY9mqYZHjQCYQuSjRQg
+        recipients:
+          type: array
+          description: >-
+            The list of recipients you're sending the document to. Every object
+            must contain the email parameter. The `role`, `first_name` and
+            `last_name` parameters are optional. If the `role` parameter passed,
+            a person is assigned all fields matching their corresponding role.
+            If not passed, a person will receive a read-only link to view the
+            document. If the `first_name` and `last_name` not passed the system
+            1. creates a new contact, if none exists with the given `email`; or
+            2. gets the existing contact with the given `email` that already
+            exists.
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+                example: josh@example.com
+              first_name:
+                type: string
+                example: Josh
+              last_name:
+                type: string
+                example: Ron
+              role:
+                type: string
+                example: user
+              signing_order:
+                type: integer
+                example: 1
+                nullable: true
+            required:
+              - email
+        tokens:
+          type: array
+          description: >-
+            You can pass a list of tokens/values to pre-fill tokens used in a
+            template. Name is a token name in a template. Value is a real value
+            you would like to replace a token with.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Favorite.Pet
+              value:
+                type: string
+                example: Panda
+            required:
+              - name
+              - value
+        fields:
+          type: object
+          description: >-
+            You can pass a list of fields/values to pre-fill fields used in a
+            template. Note that the Signature field can't be pre-filled.
+          example:
+            Like:
+              value: true
+            Delivery:
+              value: Same Day Delivery
+            Date:
+              value: '2019-12-31T00:00:00.000Z'
+        pricing_tables:
+          type: array
+          description: >-
+            Information to construct or populate a pricing table can be passed
+            when creating a document. All product information must be passed
+            when creating a new document. Products stored in PandaDoc cannot be
+            used to populate table rows at this time. Keep in mind that this is
+            an array, so multiple table objects can be passed to a document.
+            Make sure that "Automatically add products to this table" is enabled
+            in the PandaDoc template pricing tables you wish to populate via
+            API.
+          items:
+            $ref: '#/components/schemas/PricingTableRequest'
+        content_placeholders:
+          type: array
+          description: >-
+            You may replace Content Library Item Placeholders with a few content
+            library items each and pre-fill fields/variables values, pricing
+            table items, and assign recipients to roles from there.
+          items:
+            type: object
+            properties:
+              content_library_items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 9d9k7VtSQ5KCXfsUQv4GxE
+                    fields:
+                      type: object
+                    pricing_tables:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/PricingTableRequest'
+                    recipients:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          email:
+                            type: string
+                            example: josh@example.com
+                          first_name:
+                            type: string
+                            example: Josh
+                          last_name:
+                            type: string
+                            example: Ron
+                          role:
+                            type: string
+                            example: user
+                          signing_order:
+                            type: integer
+                            example: 1
+                            nullable: true
+                        required:
+                          - email
+                  required:
+                    - id
+              block_id:
+                type: string
+                example: Content Placeholder 1
+            required:
+              - block_id
+      required:
+        - template_uuid
+        - recipients
   responses:
     '401':
       description: Authentication error
@@ -5189,7 +7022,11 @@ components:
                 example: document.uploaded
               info_message:
                 type: string
-                example: 'Warning - Document status document.uploaded doesn’t mean that the document already exists - processing happens asynchronously. Please follow the documentation section https://developers.pandadoc.com/reference/new-document'
+                example: >-
+                  Warning - Document status document.uploaded doesn’t mean that
+                  the document already exists - processing happens
+                  asynchronously. Please follow the documentation section
+                  https://developers.pandadoc.com/reference/new-document
     '429':
       description: Too Many Requests
       content:
@@ -5247,15 +7084,25 @@ components:
           tokenUrl: 'https://api.pandadoc.com/oauth2/access_token'
           refreshUrl: 'https://api.pandadoc.com/oauth2/access_token'
           scopes:
-            read+write: 'Use `read+write` to create, send, delete, and download documents, and `read` to view templates and document details.'
-      description: |
-        Send the authenticating user to the PandaDoc OAuth2 request URL. We recommend a button or a link titled
-        "Connect to PandaDoc" if you are connecting users from a custom application. Users will see the "Authorize Application" screen.
-        When the user clicks "Authorize", PandaDoc redirects the user back to your site with an authorization code inside the URL.
+            read+write: >-
+              Use `read+write` to create, send, delete, and download documents,
+              and `read` to view templates and document details.
+      description: >
+        Send the authenticating user to the PandaDoc OAuth2 request URL. We
+        recommend a button or a link titled
+
+        "Connect to PandaDoc" if you are connecting users from a custom
+        application. Users will see the "Authorize Application" screen.
+
+        When the user clicks "Authorize", PandaDoc redirects the user back to
+        your site with an authorization code inside the URL.
+
 
         https://app.pandadoc.com/oauth2/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read+write&response_type=code
 
-        `client_id` and `redirect_uri` values should match your application settings.
+
+        `client_id` and `redirect_uri` values should match your application
+        settings.
 security:
   - apiKey: []
   - oauth2: []
